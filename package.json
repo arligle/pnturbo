@@ -5,16 +5,27 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "./**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "echo '在这里写入代码校验脚本'"
+    ]
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
     "turbo": "latest"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
-    "node": ">=18"
+    "node": ">=18",
+    "pnpm": ">=8"
   }
 }
